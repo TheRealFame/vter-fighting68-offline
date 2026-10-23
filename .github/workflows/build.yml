@@ -78,6 +78,42 @@ jobs:
           merge-multiple: true
       - uses: softprops/action-gh-release@v2
         with:
+          name: VTER Fighting68 — Offline Configurator ${{ github.ref_name }}
+          body: |
+            Unofficial offline build of the VTER web configurator for Linux,
+            Windows and macOS. No account, no telemetry, no network access.
+            Tested with the VTER Fighting68 HE (`0C45:8030`); other VTER models
+            that use the same configurator should work but are untested.
+
+            ### Downloads
+
+            | Platform | Asset |
+            | --- | --- |
+            | Linux x86_64 | `VTER-<version>-linux-x86_64.AppImage` — single file, no install |
+            | Debian / Ubuntu | `vter-desktop_<version>_amd64.deb` |
+            | Windows x64 | `VTER-<version>-win-x64.exe` — portable, unsigned |
+            | macOS (Intel / Apple Silicon) | `VTER-<version>-mac-x64.zip`, `VTER-<version>-mac-arm64.zip` |
+
+            ### Verified
+
+            On Linux: starts fully offline, detects the keyboard, reads its
+            settings, renders the full configuration UI, and profiles persist
+            across restarts.
+
+            Not verified: writing settings back to the keyboard (the vendor's
+            protocol code ships unmodified), Windows and macOS runtime on real
+            hardware, and other VTER models. Music effects are unavailable —
+            the vendor implements them with a Windows-only helper.
+
+            ### Notes
+
+            Windows and macOS builds are unsigned: expect SmartScreen /
+            Gatekeeper warnings (see the README for how to proceed).
+
+            Includes the vendor web application with written permission from
+            MechLands, official VTER distributor (2026-10-23). Credit to
+            VTER / DriveAll — https://vter.driveall.cn/ — no trademark claim.
+            Not affiliated. Removed on request.
           files: artifacts/*
-          generate_release_notes: true
+          generate_release_notes: false
           fail_on_unmatched_files: true
