@@ -9,10 +9,10 @@
     "start": "electron .",
     "patch": "node patch-app.js",
     "dist": "npm run dist:linux",
-    "dist:linux": "npm run patch && electron-builder --linux AppImage",
-    "dist:win": "npm run patch && electron-builder --win portable",
-    "dist:mac": "npm run patch && electron-builder --mac zip",
-    "deb": "npm run patch && electron-builder --linux dir && bash build-deb.sh"
+    "dist:linux": "npm run patch && electron-builder --linux AppImage --publish never",
+    "dist:win": "npm run patch && electron-builder --win portable --publish never",
+    "dist:mac": "npm run patch && electron-builder --mac zip --publish never",
+    "deb": "npm run patch && electron-builder --linux dir --publish never && bash build-deb.sh"
   },
   "devDependencies": {
     "electron": "^33.0.0",
