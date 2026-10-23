@@ -1,0 +1,4 @@
+# VTER / SONiX keyboards (Fighting68 HE is 0c45:8030)
+# Grants the logged-in user access to the vendor HID interface.
+# Optional: Chromium usually gets access through systemd's uaccess ACL.
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0c45", TAG+="uaccess", MODE="0660"
